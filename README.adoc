@@ -1,0 +1,18 @@
+= Criação e Execução do gRPC Gateway
+
+Processo realizado utilizando o https://hub.docker.com/r/namely/gen-grpc-gateway[namely/gen-grpc-gateway]
+
+== Etapas
+
+* Acessar pelo terminal a pasta que contém o proto
+* Executar o comando para gerar os arquivos do gateway: `docker run -v (pwd):/defs namely/gen-grpc-gateway -f greeter.proto -s Greeter`
+** `Greeter` é o nome do serviço definido no proto
+** `greeter.proto` é o nome do arquivo .proto que deve conter a definição do `google.api.http`
+
+> Observação: O comando `(pwd)` pega apenas o caminho atual de execução e está na sintaxe do https://fishshell.com/[Fish].
+
+* Executar o comando para gerar a imagem do seu gateway: `docker build -t greeter-grpc-gateway gen/grpc-gateway/`
+* Executar o comando para rodar o gateway localmente: `docker run --network="host" greeter-grpc-gateway --backend=localhost:9090`
+** `network="host"` serve para enxergar o localhost da máquina local.
+** `--backend=localhost:9090`` é o endereço do server gRPC que deve estar em execução.
+* Por fim, basta acessar `http://localhost/v1/hello?name=Thiago` no navegador para verificar a execução.

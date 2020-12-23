@@ -1,0 +1,21 @@
+backend:
+cors:
+  allow-origin:
+  allow-credentials:
+  allow-methods:
+  allow-headers:
+proxy:
+  port: 80
+  api-prefix: "/"
+grpc:
+  max-call-recv-msg-size: 0
+  max-call-send-msg-size: 0
+gateway:
+  use-json-names: false
+  emit-unpopulated: false
+  keep-unknown: false
+
+swagger:
+  file: "greeter.swagger.json"
+
+

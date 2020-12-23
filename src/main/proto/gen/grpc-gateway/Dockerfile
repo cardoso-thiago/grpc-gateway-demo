@@ -1,0 +1,27 @@
+# Template for grpc-gateway 
+
+ARG alpine_version=3.11
+ARG go_version=1.14
+FROM golang:$go_version-alpine$alpine_version AS build
+
+RUN apk add --update --no-cache git
+WORKDIR /app
+
+# Copy all of the staged files (protos plus go source)
+COPY . /app/
+
+# init the module so we can actually build
+RUN go mod init gateway
+
+# Build the gateway
+RUN go build -o /app/grpc_gateway cmd/gateway/main.go
+
+FROM alpine:$alpine_version
+WORKDIR /app
+COPY --from=build /app/grpc_gateway /app/
+COPY --from=build /app/config.yaml /app/
+COPY --from=build /app/gen/greeter.swagger.json /app/
+
+EXPOSE 80
+ENTRYPOINT ["/app/grpc_gateway"]
+
