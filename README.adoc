@@ -15,4 +15,4 @@ Processo realizado utilizando o https://hub.docker.com/r/namely/gen-grpc-gateway
 * Executar o comando para rodar o gateway localmente: `docker run --network="host" greeter-grpc-gateway --backend=localhost:9090`
 ** `network="host"` serve para enxergar o localhost da máquina local.
 ** `--backend=localhost:9090`` é o endereço do server gRPC que deve estar em execução.
-* Por fim, basta acessar `http://localhost/v1/hello?name=Thiago` no navegador para verificar a execução.
+* Por fim, a pasta `collection` do projeto possui os exemplos de requisição `GET` e `POST` dessa demo.

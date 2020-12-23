@@ -11,10 +11,20 @@ service Greeter {
             get: "/v1/hello"
         };
     }
+    rpc SayHelloPost (CreateHelloPostRequest) returns (HelloReply) {
+            option (google.api.http) = {
+                post: "/v1/hello"
+                body: "hello"
+            };
+        }
 }
 
 message HelloRequest {
     string name = 1;
+}
+
+message CreateHelloPostRequest {
+	HelloRequest hello = 1;
 }
 
 message HelloReply {

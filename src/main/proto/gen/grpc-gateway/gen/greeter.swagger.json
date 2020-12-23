@@ -44,6 +44,36 @@
         "tags": [
           "Greeter"
         ]
+      },
+      "post": {
+        "operationId": "Greeter_SayHelloPost",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cardosoHelloReply"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cardosoHelloRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Greeter"
+        ]
       }
     }
   },
@@ -52,6 +82,14 @@
       "type": "object",
       "properties": {
         "message": {
+          "type": "string"
+        }
+      }
+    },
+    "cardosoHelloRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
           "type": "string"
         }
       }

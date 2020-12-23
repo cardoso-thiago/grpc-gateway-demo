@@ -9,4 +9,7 @@ class GrpcServer : GreeterGrpcKt.GreeterCoroutineImplBase() {
 
     override suspend fun sayHello(request: GreeterOuterClass.HelloRequest): GreeterOuterClass.HelloReply =
             GreeterOuterClass.HelloReply.newBuilder().setMessage("Hello ==> " + request.name).build()
+
+    override suspend fun sayHelloPost(request: GreeterOuterClass.CreateHelloPostRequest): GreeterOuterClass.HelloReply =
+            GreeterOuterClass.HelloReply.newBuilder().setMessage("Hello ==> " + request.hello.name).build()
 }

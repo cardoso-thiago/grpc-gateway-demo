@@ -74,6 +74,53 @@ func (x *HelloRequest) GetName() string {
 	return ""
 }
 
+type CreateHelloPostRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Hello *HelloRequest `protobuf:"bytes,1,opt,name=hello,proto3" json:"hello,omitempty"`
+}
+
+func (x *CreateHelloPostRequest) Reset() {
+	*x = CreateHelloPostRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greeter_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateHelloPostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateHelloPostRequest) ProtoMessage() {}
+
+func (x *CreateHelloPostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_greeter_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateHelloPostRequest.ProtoReflect.Descriptor instead.
+func (*CreateHelloPostRequest) Descriptor() ([]byte, []int) {
+	return file_greeter_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateHelloPostRequest) GetHello() *HelloRequest {
+	if x != nil {
+		return x.Hello
+	}
+	return nil
+}
+
 type HelloReply struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -85,7 +132,7 @@ type HelloReply struct {
 func (x *HelloReply) Reset() {
 	*x = HelloReply{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greeter_proto_msgTypes[1]
+		mi := &file_greeter_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -98,7 +145,7 @@ func (x *HelloReply) String() string {
 func (*HelloReply) ProtoMessage() {}
 
 func (x *HelloReply) ProtoReflect() protoreflect.Message {
-	mi := &file_greeter_proto_msgTypes[1]
+	mi := &file_greeter_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -111,7 +158,7 @@ func (x *HelloReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HelloReply.ProtoReflect.Descriptor instead.
 func (*HelloReply) Descriptor() ([]byte, []int) {
-	return file_greeter_proto_rawDescGZIP(), []int{1}
+	return file_greeter_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *HelloReply) GetMessage() string {
@@ -133,16 +180,28 @@ var file_greeter_proto_rawDesc = []byte{
 	0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x65, 0x6d, 0x70, 0x74, 0x79, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x22, 0x0a, 0x0c, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x26, 0x0a, 0x0a, 0x48, 0x65, 0x6c,
-	0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x32, 0x62, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x57, 0x0a, 0x08,
-	0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x1c, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f, 0x6d, 0x2e,
-	0x63, 0x61, 0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70,
-	0x6c, 0x79, 0x22, 0x11, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0b, 0x12, 0x09, 0x2f, 0x76, 0x31, 0x2f,
-	0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x4c, 0x0a, 0x16, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x50, 0x6f, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x32, 0x0a, 0x05, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x61, 0x72, 0x64,
+	0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x52, 0x05, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x22, 0x26, 0x0a, 0x0a, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
+	0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32,
+	0xd0, 0x01, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x57, 0x0a, 0x08, 0x53,
+	0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x1c, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2e, 0x63, 0x61, 0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63,
+	0x61, 0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c,
+	0x79, 0x22, 0x11, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0b, 0x12, 0x09, 0x2f, 0x76, 0x31, 0x2f, 0x68,
+	0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x6c, 0x0a, 0x0c, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
+	0x50, 0x6f, 0x73, 0x74, 0x12, 0x26, 0x2e, 0x62, 0x72, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x61,
+	0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x48, 0x65, 0x6c, 0x6c,
+	0x6f, 0x50, 0x6f, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x62,
+	0x72, 0x2e, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x61, 0x72, 0x64, 0x6f, 0x73, 0x6f, 0x2e, 0x48, 0x65,
+	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x18, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x12,
+	0x22, 0x09, 0x2f, 0x76, 0x31, 0x2f, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x3a, 0x05, 0x68, 0x65, 0x6c,
+	0x6c, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -157,19 +216,23 @@ func file_greeter_proto_rawDescGZIP() []byte {
 	return file_greeter_proto_rawDescData
 }
 
-var file_greeter_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_greeter_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_greeter_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil), // 0: br.com.cardoso.HelloRequest
-	(*HelloReply)(nil),   // 1: br.com.cardoso.HelloReply
+	(*HelloRequest)(nil),           // 0: br.com.cardoso.HelloRequest
+	(*CreateHelloPostRequest)(nil), // 1: br.com.cardoso.CreateHelloPostRequest
+	(*HelloReply)(nil),             // 2: br.com.cardoso.HelloReply
 }
 var file_greeter_proto_depIdxs = []int32{
-	0, // 0: br.com.cardoso.Greeter.SayHello:input_type -> br.com.cardoso.HelloRequest
-	1, // 1: br.com.cardoso.Greeter.SayHello:output_type -> br.com.cardoso.HelloReply
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: br.com.cardoso.CreateHelloPostRequest.hello:type_name -> br.com.cardoso.HelloRequest
+	0, // 1: br.com.cardoso.Greeter.SayHello:input_type -> br.com.cardoso.HelloRequest
+	1, // 2: br.com.cardoso.Greeter.SayHelloPost:input_type -> br.com.cardoso.CreateHelloPostRequest
+	2, // 3: br.com.cardoso.Greeter.SayHello:output_type -> br.com.cardoso.HelloReply
+	2, // 4: br.com.cardoso.Greeter.SayHelloPost:output_type -> br.com.cardoso.HelloReply
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_greeter_proto_init() }
@@ -191,6 +254,18 @@ func file_greeter_proto_init() {
 			}
 		}
 		file_greeter_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateHelloPostRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greeter_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HelloReply); i {
 			case 0:
 				return &v.state
@@ -209,7 +284,7 @@ func file_greeter_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greeter_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -236,6 +311,7 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GreeterClient interface {
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+	SayHelloPost(ctx context.Context, in *CreateHelloPostRequest, opts ...grpc.CallOption) (*HelloReply, error)
 }
 
 type greeterClient struct {
@@ -255,9 +331,19 @@ func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...
 	return out, nil
 }
 
+func (c *greeterClient) SayHelloPost(ctx context.Context, in *CreateHelloPostRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+	out := new(HelloReply)
+	err := c.cc.Invoke(ctx, "/br.com.cardoso.Greeter/SayHelloPost", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GreeterServer is the server API for Greeter service.
 type GreeterServer interface {
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+	SayHelloPost(context.Context, *CreateHelloPostRequest) (*HelloReply, error)
 }
 
 // UnimplementedGreeterServer can be embedded to have forward compatible implementations.
@@ -266,6 +352,9 @@ type UnimplementedGreeterServer struct {
 
 func (*UnimplementedGreeterServer) SayHello(context.Context, *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+}
+func (*UnimplementedGreeterServer) SayHelloPost(context.Context, *CreateHelloPostRequest) (*HelloReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SayHelloPost not implemented")
 }
 
 func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
@@ -290,6 +379,24 @@ func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Greeter_SayHelloPost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateHelloPostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreeterServer).SayHelloPost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/br.com.cardoso.Greeter/SayHelloPost",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreeterServer).SayHelloPost(ctx, req.(*CreateHelloPostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Greeter_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "br.com.cardoso.Greeter",
 	HandlerType: (*GreeterServer)(nil),
@@ -297,6 +404,10 @@ var _Greeter_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _Greeter_SayHello_Handler,
+		},
+		{
+			MethodName: "SayHelloPost",
+			Handler:    _Greeter_SayHelloPost_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
